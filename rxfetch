@@ -182,47 +182,41 @@ get_de_wm() {
 
 	# for non-EWMH WMs
 	[ ! "$wm" ] || [ "$wm" = "LG3D" ] &&
-		wm=$(pgrep -m 1 -o \
-			-e "sway" \
-			-e "kiwmi" \
-			-e "wayfire" \
-			-e "sowm" \
-			-e "catwm" \
-			-e "fvwm" \
-			-e "dwm" \
-			-e "2bwm" \
-			-e "monsterwm" \
-			-e "tinywm" \
-			-e "xmonad")
+		wm=$(pgrep -o \
+			"sway" \
+			"kiwmi" \
+			"wayfire" \
+			"sowm" \
+			"catwm" \
+			"fvwm" \
+			"dwm" \
+			"2bwm" \
+			"monsterwm" \
+			"tinywm" \
+			"xmonad")
 
 	echo "${wm:-unknown}"
 }
 
 setup_fonts
-
-echo "               "
-
 if [ "$os" = Android ]; then
 	echo -e "               ${c5}phone${c3}  $(getprop ro.product.brand) $(getprop ro.product.model)"
 fi
-
-echo -e "               ${c1}os${c3}     $(get_distro_name) $(uname -m)"
-echo -e "               ${c2}ker${c3}    $(uname -r)"
-echo -e "     ${c3}•${c8}_${c3}•${c0}       ${c7}pkgs${c3}   $(get_package_info)"
-echo -e "     ${c8}${c0}${c9}oo${c0}${c8}|${c0}       ${c4}sh${c3}     ${SHELL##*/}"
-echo -e "    ${c8}/${c0}${c10} ${c0}${c8}'\'${c0}      ${c6}ram${c3}    $(get_mem)"
-echo -e "   ${c9}(${c0}${c8}\_;/${c0}${c9})${c0}      ${c1}init${c3}   $(get_init)"
-
-if [ -n "$DISPLAY" ]; then
-	echo -e "               ${c2}de/wm${c3}  $(get_de_wm)"
-fi
-
-echo -e "               ${c7}up${c3}    $(get_uptime)"
-echo -e "               ${c6}disk${c3}   $(get_storage_info)"
-echo -e "               "
-
-if [ "$os" != Android ]; then
-	echo -e "        ${c6}󰮯  ${c6}${c2}󰊠  ${c2}${c4}󰊠  ${c4}${c5}󰊠  ${c5}${c7}󰊠  ${c7}"
-fi
-
-echo -e "               \033[0m"
+echo -e " "
+echo -e "  ┏━━━━━━━━━━━━━━━━━━━━━━┓"
+echo -e "  ┃ ${c1}p${c2}a${c3}t${c4}i${c5}e${c6}n${c7}c${c1}e${c0}     ${c5}${c0}  ${c7}${c0}  ${c6}${c0} ┃  ${c1}$(whoami)${c5}@${c1}${c2}$(cat /etc/hostname)"
+echo -e "  ┣━━━━━━━━━━━━━━━━━━━━━━┫"
+echo -e "  ┃                      ┃  ${c1}os${c3}     $(get_distro_name)"
+echo -e "  ┃          ${c3}•${c8}_${c3}•${c0}         ┃  ${c2}ker${c3}    $(uname -r)"
+echo -e "  ┃          ${c8}${c0}${c9}oo${c0}${c8}|${c0}         ┃  ${c7}pkgs${c3}   $(get_package_info)"
+echo -e "  ┃         ${c8}/${c0}${c10} ${c0}${c8}'\'${c0}        ┃  ${c4}sh${c3}     ${SHELL##*/}"
+echo -e "  ┃        ${c9}(${c0}${c8}\_;/${c0}${c9})${c0}        ┃  ${c6}ram${c3}    $(get_mem)"
+echo -e "  ┃                      ┃  ${c1}init${c3}   $(get_init)"
+echo -e "  ┃    enter the ${c1}void${c3}    ┃  ${c2}wm   ${c3}  $(get_de_wm)"
+echo -e "  ┃                      ┃  ${c6}disk${c3}   $(get_storage_info)"
+echo -e "  ┗━━━━━━━━━━━━━━━━━━━━━━┛  ${c1}━━━${c2}━━━${c3}━━━${c4}━━━${c5}━━━${c6}━━━${c7}━━━"
+echo -e " "
+#echo -e "     •_•       "
+#echo -e "     oo|       "
+#echo -e "    / '\'"
+#echo -e "   (\_;/)"

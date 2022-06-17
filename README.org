@@ -7,14 +7,14 @@ fork of https://github.com/mangeshrex/rxfetch
 
 ** Clone this repository & run rxfetch.
 #+BEGIN_SRC shell
-git clone https://github.com/mangeshrex/rxfetch
-cd rxfetch
+git clone https://github.com/isodiff/rxfetch-script
+cd rxfetch-script
 cp ttf-material-design-fonts/* $HOME/.local/share/fonts
 fc-cache -fv
 ./rxfetch
 #+END_SRC
 #+BEGIN_SRC shell
-wget https://raw.githubusercontent.com/Mangeshrex/rxfetch/main/rxfetch && chmod +x rxfetch
+wget https://raw.githubusercontent.com/isodiff/rxfetch-script/main/rxfetch && chmod +x rxfetch
 ./rxfetch
 #+END_SRC
 ** You can also add rxfetch to PATH by placing it in /usr/local/bin

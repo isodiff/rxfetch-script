@@ -1,3 +1,6 @@
+fork of https://github.com/mangeshrex/rxfetch
+
+
 #+TITLE: rxfetch
   rxfetch is available in the AUR, you can install it with
   yay -S rxfetch
